@@ -1,0 +1,14 @@
+[
+    {
+        "movie_id": "M01",
+        "title": "Avengers Endgame",
+        "genre": "Action",
+        "duration": 200
+    },
+    {
+        "movie_id": "M02",
+        "title": "Conan",
+        "genre": "Anime",
+        "duration": 120
+    }
+]
