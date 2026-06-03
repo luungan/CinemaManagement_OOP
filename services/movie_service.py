@@ -58,6 +58,18 @@ class MovieService:
         
         return False
     
+    # Sort movie by title
+    def sort_by_title(self):
+        self.movie_list.sort(key=lambda movie: movie.title)
+
+
+    # Sort movie by duration descending
+    def sort_by_duration_desc(self):
+        self.movie_list.sort(
+            key=lambda movie: movie.duration,
+            reverse=True
+        ) 
+
     # Save JSON
     def save_data(self):
         data = []

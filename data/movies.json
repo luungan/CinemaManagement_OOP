@@ -10,5 +10,11 @@
         "title": "Conan",
         "genre": "Anime",
         "duration": 120
+    },
+    {
+    "movie_id": "M03",
+    "title": "Batman",
+    "genre": "Action",
+    "duration": 150
     }
 ]

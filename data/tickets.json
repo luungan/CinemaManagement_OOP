@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "ticket_id": "T01",
+        "movie_title": "Avengers Endgame",
+        "seat_id": "B01",
+        "price": 100000
+    }
+]

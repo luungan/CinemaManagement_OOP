@@ -1,26 +1,14 @@
-from services.movie_service import MovieService
+from models.ticket import Ticket
+from services.ticket_service import TicketService
 
 
-service = MovieService()
+service = TicketService()
 
-print("===== MOVIE LIST =====")
-service.display_movies()
+ticket1 = Ticket("T01", "Avengers Endgame", "B01", 100000)
 
-print("\n===== UPDATE MOVIE =====")
+service.add_ticket(ticket1)
 
-result = service.update_movie(
-    "M01",
-    "Avengers Endgame",
-    "Action",
-    200
-)
-
-if result:
-    print("Update successfully")
-else:
-    print("Movie not found")
-
-print("\n===== MOVIE LIST AFTER UPDATE =====")
-service.display_movies()
+print("===== TICKET LIST =====")
+service.display_tickets()
 
 service.save_data()
