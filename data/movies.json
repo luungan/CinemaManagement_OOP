@@ -6,15 +6,21 @@
         "duration": 200
     },
     {
+        "movie_id": "123",
+        "title": "Titanic Remastered",
+        "genre": "Drama",
+        "duration": 200
+    },
+    {
+        "movie_id": "M03",
+        "title": "Batman",
+        "genre": "Action",
+        "duration": 150
+    },
+    {
         "movie_id": "M02",
         "title": "Conan",
         "genre": "Anime",
         "duration": 120
-    },
-    {
-    "movie_id": "M03",
-    "title": "Batman",
-    "genre": "Action",
-    "duration": 150
     }
 ]

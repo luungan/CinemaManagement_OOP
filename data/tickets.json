@@ -4,5 +4,17 @@
         "movie_title": "Avengers Endgame",
         "seat_id": "B01",
         "price": 100000
+    },
+    {
+        "ticket_id": "T01",
+        "movie_title": "Avengers Endgame",
+        "seat_id": "B01",
+        "price": 100000
+    },
+    {
+        "ticket_id": "123",
+        "movie_title": "Titanic",
+        "seat_id": "A01",
+        "price": 70000
     }
 ]

@@ -9,7 +9,14 @@ class ShowtimeService:
         self.load_data()
 
     def add_showtime(self, showtime):
+        old_showtime = self.find_showtime_by_id(showtime.showtime_id)
+
+        if old_showtime is not None:
+            print("Showtime ID already exists")
+            return False
+
         self.showtime_list.append(showtime)
+        return True
 
     def display_showtimes(self):
         if len(self.showtime_list) == 0:
@@ -23,6 +30,20 @@ class ShowtimeService:
         for showtime in self.showtime_list:
             if showtime.showtime_id == showtime_id:
                 return showtime
+
+        return None
+    
+    def update_showtime(self, showtime_id, new_movie_title, new_date, new_time, new_room):
+        showtime = self.find_showtime_by_id(showtime_id)
+
+        if showtime is not None:
+            showtime.movie_title = new_movie_title
+            showtime.date = new_date
+            showtime.time = new_time
+            showtime.room = new_room
+            return True
+
+        return False
 
         return None
 

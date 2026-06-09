@@ -10,7 +10,14 @@ class SeatService:
 
     # Add seat
     def add_seat(self, seat):
+        old_seat = self.find_seat_by_id(seat.seat_id)
+
+        if old_seat is not None:
+            print("Seat ID already exists")
+            return False
+
         self.seat_list.append(seat)
+        return True
 
     # Display seats
     def display_seats(self):
@@ -43,11 +50,15 @@ class SeatService:
     def book_seat(self, seat_id):
         seat = self.find_seat_by_id(seat_id)
 
-        if seat is not None:
-            seat.is_booked = True
-            return True
+        if seat is None:
+            return False
 
-        return False
+        if seat.is_booked:
+            print("Seat already booked")
+            return False
+
+        seat.is_booked = True
+        return True
 
     # Save JSON
     def save_data(self):
@@ -80,19 +91,19 @@ class SeatService:
                     if seat_type == "StandardSeat":
                         seat = StandardSeat(
                             item["seat_id"],
-                            item["price"]
+                            item["base_price"]
                         )
 
                     elif seat_type == "VIPSeat":
                         seat = VIPSeat(
                             item["seat_id"],
-                            item["price"]
+                            item["base_price"]
                         )
 
                     else:
                         seat = CoupleSeat(
                             item["seat_id"],
-                            item["price"]
+                            item["base_price"]
                         )
 
                     seat.is_booked = item["is_booked"]

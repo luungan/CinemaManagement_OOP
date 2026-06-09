@@ -9,7 +9,14 @@ class TicketService:
         self.load_data()
 
     def add_ticket(self, ticket):
+        old_ticket = self.find_ticket_by_id(ticket.ticket_id)
+
+        if old_ticket is not None:
+            print("Ticket ID already exists")
+            return False
+
         self.ticket_list.append(ticket)
+        return True
 
     def display_tickets(self):
         if len(self.ticket_list) == 0:
@@ -18,6 +25,13 @@ class TicketService:
 
         for ticket in self.ticket_list:
             print(ticket)
+
+    def find_ticket_by_id(self, ticket_id):
+        for ticket in self.ticket_list:
+            if ticket.ticket_id == ticket_id:
+                return ticket
+
+        return None
 
     def save_data(self):
         data = []
