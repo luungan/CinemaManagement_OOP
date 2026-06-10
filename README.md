@@ -62,6 +62,7 @@ Cinema Management System là ứng dụng quản lý rạp chiếu phim được
 
 ## 4. Cấu trúc thư mục
 
+```text
 CinemaManagement/
 │
 ├── main.py
@@ -87,6 +88,7 @@ CinemaManagement/
 │
 └── views/
     └── menu.py
+```
 
 
 ## 5. Kiến trúc hệ thống
