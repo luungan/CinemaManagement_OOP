@@ -1,3 +1,5 @@
+import csv
+
 from models.movie import Movie
 from models.showtime import Showtime
 from models.seat import StandardSeat, VIPSeat, CoupleSeat
@@ -298,18 +300,54 @@ def report_menu():
         print("\n--- REPORTS ---")
         print("1. Total Revenue")
         print("2. Total Tickets Sold")
+        print("3. Total Movies")
+        print("4. Total Showtimes")
+        print("5. Available Seats")
+        print("6. Export Report to CSV")
         print("0. Back")
 
         choice = input("Enter your choice: ")
 
+        total_revenue = 0
+        for ticket in ticket_service.ticket_list:
+            total_revenue += ticket.price
+
+        total_tickets = len(ticket_service.ticket_list)
+        total_movies = len(movie_service.movie_list)
+        total_showtimes = len(showtime_service.showtime_list)
+
+        available_seats = 0
+        for seat in seat_service.seat_list:
+            if seat.is_booked == False:
+                available_seats += 1
+
         if choice == "1":
-            total = 0
-            for ticket in ticket_service.ticket_list:
-                total += ticket.price
-            print(f"Total revenue: {total} VND")
+            print(f"Total revenue: {total_revenue} VND")
 
         elif choice == "2":
-            print(f"Total tickets sold: {len(ticket_service.ticket_list)}")
+            print(f"Total tickets sold: {total_tickets}")
+
+        elif choice == "3":
+            print(f"Total movies: {total_movies}")
+
+        elif choice == "4":
+            print(f"Total showtimes: {total_showtimes}")
+
+        elif choice == "5":
+            print(f"Available seats: {available_seats}")
+
+        elif choice == "6":
+            with open("data/report.csv", "w", newline="", encoding="utf-8") as file:
+                writer = csv.writer(file)
+
+                writer.writerow(["Report", "Value"])
+                writer.writerow(["Total Revenue", total_revenue])
+                writer.writerow(["Total Tickets Sold", total_tickets])
+                writer.writerow(["Total Movies", total_movies])
+                writer.writerow(["Total Showtimes", total_showtimes])
+                writer.writerow(["Available Seats", available_seats])
+
+            print("Report exported successfully to data/report.csv")
 
         elif choice == "0":
             break
